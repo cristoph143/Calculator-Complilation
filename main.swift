@@ -2,21 +2,16 @@
 func calculate(num1: Float, num2: Float, op: String) -> Float {
     var result: Float = 0
     switch op {
-    case "+":
-        result = num1 + num2
-    case "-":
-        result = num1 - num2
-    case "*":
-        result = num1 * num2
-    case "/":
-        // if the second number is 0, return 0.
-        if num2 == 0 {
-            result = 0
-        } else {
+        case "+":
+            result = num1 + num2
+        case "-":
+            result = num1 - num2
+        case "*":
+            result = num1 * num2
+        case "/":
             result = num1 / num2
-        }
-    default:
-        result = 0
+        default:
+            result = 0
     }
     return result
 }
@@ -55,6 +50,10 @@ repeat {
     let num1 = Float(readLine()!)!
     print("Enter the second number:")
     let num2 = Float(readLine()!)!
+    // if op is == / and num2 is equal to 0 then throw error
+    if operatorInput == "/" && num2 == 0 {
+        print("You cannot divide by 0.")
+    } 
     // calculate the result
     let res = calculate(num1: num1, num2: num2, op: operatorInput)
     // print and format the result
