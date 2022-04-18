@@ -1,5 +1,3 @@
-// library for exit(0)
-import Darwin
 // return the result of the calculator.
 func calculate(num1: Float, num2: Float, op: String) -> Float {
     var result: Float = 0
@@ -37,8 +35,7 @@ func operatorInputfunc() -> String {
         }
         // if operatorInput is q
         if operatorInput == "q" {
-            print("Goodbye!")
-            exit(0)
+            break
         }
     } while operatorInput != "+" && operatorInput != "-" && 
         operatorInput != "*" && operatorInput != "/"
@@ -48,6 +45,11 @@ func operatorInputfunc() -> String {
 repeat {
     // call the operatorInputfunc function
     operatorInput = operatorInputfunc()
+    // if operatorInput is q
+    if operatorInput == "q" {
+        print("Goodbye!")
+        break
+    }
     // get the float num1 and float num2
     print("Enter the first number:")
     let num1 = Float(readLine()!)!
